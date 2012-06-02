@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Cookiebox</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="../cookiebox.css" />
+    
+    
+    <script src="../jquery-1.7.2.min.js"></script>
+    <script src="../jquery.cookiebox-0.0.1.js"></script>
+    
+    
+</head>
+
+<body id="home">
+
+<h2>How to use this example</h2>
+
+<p>On pageload you get a alert message that shows the cookie preference.</p>
+
+<p>When you make a choice the page reloads, then you will see the result in the new alert message.</p>
+
+<p>To reset the cookie clik on the following link: <a href="#" onClick="$(document).CookieBox('flushCookie'); location.reload();">Flush Cookie</a>.</p>
+
+
+	<script>
+		$(function() {
+			$(document).CookieBox({
+				cookieItems: [
+					{
+						title: 'Google Analytics',
+						icon: 'images/ga.jpg',
+						text: 'We use Google Analytics to store customer behaviour, this will be in advantage of the experience of this site. Google Analytics is used over more than 50% of all sites.'
+					}
+				]
+			});
+			
+			if($(document).CookieBox('hasPermission'))
+			{
+				alert('you can use cookies');
+			} else
+			{
+				alert('you can\'t use cookies');
+			}
+			
+		});
+	</script>
+
+</body>
+</html>
