@@ -8,7 +8,7 @@
     
     
     <script src="../jquery-1.7.2.min.js"></script>
-    <script src="../jquery.cookiebox-0.0.1.js"></script>
+    <script src="../jquery.cookiebox-0.0.2.js"></script>
     
     
 </head>
@@ -23,10 +23,16 @@
 
 <p>To reset the cookie clik on the following link: <a href="#" onClick="$(document).CookieBox('flushCookie'); location.reload();">Flush Cookie</a>.</p>
 
+<h2>Optin test</h2>
+
+<p>To test the opt-in functionality use the setting optIn: false or true </p>
+
 
 	<script>
 		$(function() {
 			$(document).CookieBox({
+				optIn: true,
+								  
 				cookieItems: [
 					{
 						title: 'Google Analytics',

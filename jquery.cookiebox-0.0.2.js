@@ -1,4 +1,10 @@
 /*!
+ * Contents of document
+ * - jQuery Cookie Plugin, Copyright 2011, Klaus Hartl
+ * - jQuery CookieBox Plugin, Copyright 2012, Robin Crama
+*/
+
+/*!
  * jQuery Cookie Plugin
  * https://github.com/carhartl/jquery-cookie
  *
@@ -11,13 +17,14 @@
 
 /*!
  * jQuery CookieBox Plugin
- * Includes: jQuery Cookie Plugin
- * https://github.com/***
+ * https://github.com/robincrama/CookieBox.js
  *
  * Copyright 2012, Robin Crama
  * Dual licensed under the MIT or GPL Version 2 licenses.
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.opensource.org/licenses/GPL-2.0
+ 
+ * Includes: jQuery Cookie Plugin, Copyright 2011, Klaus Hartl
  */
  
 (function($) {
@@ -44,6 +51,7 @@
 				// Setup default options
 				settings = $.extend({
 					cookieItems: [],
+					optIn: false,
 					title: 'This site uses cookies...',
 					introText: 'Cookies are small text files that help us to make a better experience for you. More information about cookies on this site can be found on the <a href="#">The Cookie information page</a>.',
 					cookieBoxYesText: 'Fine with me!',
@@ -84,7 +92,7 @@
 				//Functions
 				setCookie = function setCookie(granted)
 				{
-					var value = (granted) ? 'YES' : 'NO';
+					var value = (granted === true) ? 'YES' : 'NO';
 					$.cookie(settings.cookiePrefix+cookieTitles.preference, value, { expires: (365*3) });
 				}
 				
@@ -165,7 +173,7 @@
 		{
 			var cookie = $.cookie(settings.cookiePrefix+cookieTitles.preference);
 			
-			var hasPermission = false;
+			var hasPermission;
 			if($.cookie(settings.cookiePrefix+cookieTitles.preference) !== null)
 			{
 				if($.cookie(settings.cookiePrefix+cookieTitles.preference) === 'YES')
@@ -177,7 +185,13 @@
 				}
 			} else
 			{
-				hasPermission = false;
+				if(settings.optIn) 
+				{
+					hasPermission = false;
+				} else
+				{
+					hasPermission = true;
+				}
 			}
 			return hasPermission;
 		}

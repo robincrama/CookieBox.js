@@ -1,0 +1,2 @@
+0.0.2
+- Added optIn Setting to enable or disable opt-in functionality
