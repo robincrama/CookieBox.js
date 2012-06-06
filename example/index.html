@@ -8,7 +8,7 @@
     
     
     <script src="../jquery-1.7.2.min.js"></script>
-    <script src="../jquery.cookiebox-0.0.2.js"></script>
+    <script src="../jquery.cookiebox-0.0.3.js"></script>
     
     
 </head>
@@ -23,20 +23,39 @@
 
 <p>To reset the cookie clik on the following link: <a href="#" onClick="$(document).CookieBox('flushCookie'); location.reload();">Flush Cookie</a>.</p>
 
-<h2>Optin test</h2>
+<h2>Opt-in test</h2>
 
 <p>To test the opt-in functionality use the setting optIn: false or true </p>
+
+<h2>In-page example</h2>
+<div id="inPageElement">
+	
+</div>
 
 
 	<script>
 		$(function() {
-			$(document).CookieBox({
+			$("body").CookieBox({
 				optIn: true,
 								  
 				cookieItems: [
 					{
 						title: 'Google Analytics',
 						icon: 'images/ga.jpg',
+						text: 'We use Google Analytics to store customer behaviour, this will be in advantage of the experience of this site. Google Analytics is used over more than 50% of all sites.'
+					}
+				]
+			});
+			
+			$("#inPageElement").CookieBox({
+				optIn: true,
+				inPage: true,
+								  
+				cookieItems: [
+					{
+						title: 'Google Analytics',
+						icon: 'images/ga.jpg',
+						
 						text: 'We use Google Analytics to store customer behaviour, this will be in advantage of the experience of this site. Google Analytics is used over more than 50% of all sites.'
 					}
 				]

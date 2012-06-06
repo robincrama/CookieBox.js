@@ -52,6 +52,7 @@
 				settings = $.extend({
 					cookieItems: [],
 					optIn: false,
+					inPage: false,
 					title: 'This site uses cookies...',
 					introText: 'Cookies are small text files that help us to make a better experience for you. More information about cookies on this site can be found on the <a href="#">The Cookie information page</a>.',
 					cookieBoxYesText: 'Fine with me!',
@@ -83,7 +84,9 @@
 				{
 					//append HTML in Body
 					var html = getHTML();
-					$('body').append(html);
+					$($this).append(html);
+					
+					setCSSClasses();
 					
 					setEventListeners();
 				}
@@ -114,7 +117,7 @@
 				
 				function getHTML()
 				{
-					var html = '<div id="CookieBox">';
+					var html = '<div class="CookieBox">';
 					
 					html += '<div class="CookieBoxTitle">'+settings.title+'</div>';
 					html += '<div class="CookieBoxIntro">'+settings.introText+'</div>';
@@ -149,6 +152,17 @@
 					html += '</div>';
 					
 					return html;
+				}
+				
+				function setCSSClasses()
+				{
+					if(settings.inPage)
+					{
+						$this.find('.CookieBox').addClass('inpage');
+					} else
+					{
+						$this.find('.CookieBox').addClass('slide');
+					}
 				}
 				
 			});

@@ -1,2 +1,5 @@
 0.0.2
 - Added optIn Setting to enable or disable opt-in functionality
+
+0.0.3
+- Added 'in-page' variant
